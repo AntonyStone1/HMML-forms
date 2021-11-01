@@ -1,0 +1,168 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+a, a:visited {
+    color: inherit;
+    text-decoration: inherit;
+    list-style: none;
+}
+input, select {
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: groove;
+    background-color: #eee;
+  }
+  
+input:focus, select:focus {
+  outline: none;
+}
+body {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    background-color: #102250;
+}
+.wrapper { 
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.form-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 400px;
+    height: 600px;
+    margin: 0 auto;
+    padding:25px;
+    background-color: #fff;
+    border: 1px solid #000000;
+    border-radius: 8px;
+}
+.form-heading {
+    width: 100%;
+    & h2 {
+        font-size: 28px;
+        line-height: 33px;
+        width: 100%;
+        text-align: center;
+    }
+}
+.form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 400px;
+    &_name input, &_pass input, &_sign-in input, select {
+        font-size: 14px;
+        line-height: 16px;            
+        color: #898F94;
+        width: 350px;
+        height: 45px;
+        padding-left: 40px;
+        background: #F5F8FA;
+        border: 1px solid #FF0000;
+        border-radius: 8px;
+    }    
+    &_name{
+        position: relative;
+        &::before {
+            content: ' ';
+            display: block;
+            position: absolute;
+            width: 20px;
+            height: 16px;
+            top: 14px;
+            left: 11px;
+            background-image: url('../img/name-icon.png');
+            z-index: 1;
+        }
+        & input:focus {
+            border: 1px solid #DBE0E4;
+        }
+    }
+    &_pass {
+        position: relative;
+        &::before {
+            content: ' ';
+            display: block;
+            position: absolute;
+            width: 16px;
+            height: 20px;
+            top: 12px;
+            left: 11px;
+            background-image: url('../img/pass-icon.png');
+            z-index: 1;
+        }
+        &::after {
+            content: ' ';
+            display: block;
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            top: 14px;
+            right: 13px;
+            background-image: url('../img/passWatch-icon.png');
+            z-index: 1;
+        }
+        & input:focus {
+            border: 1px solid #DBE0E4;
+        }
+    }
+    
+    &_country select {
+        padding-left: 32px;
+        padding-right: 10px;
+    }
+    &
+    &_country select:focus {
+        border: 1px solid #DBE0E4;
+    }
+
+    &_gender {
+        padding-left: 10px;
+        & label {
+            padding-left: 4px;
+            padding-right: 10px;
+        }
+    }
+    &_agreement {
+        padding-left: 10px;
+        & label {
+            padding-left: 6px;
+        }
+        & label a {
+            color: #625fff;
+        }
+        
+    }
+    &_sign-in input {
+        font-size: 18px;
+        line-height: 21px;
+        color: #fff;
+        padding: 0;
+        background: #A2A2A2;
+        border: #DBE0E4;
+        border-radius: 12px;
+    }
+
+}
+
+.sign-in__active {
+    background: #0094FF;
+}
+.input__active {
+    border: 1px solid #DBE0E4 !important;
+}
+
+
+.germany {
+    margin-top: 10px;
+    padding-top: 10px;
+}
+#selectId * {
+    background-color: red;
+}

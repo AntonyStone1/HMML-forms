@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;900&family=Mulish:wght@300;400;700&family=Roboto&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="form-wrapper">
+            <div class="form-heading">
+                <h2>Create new account</h2>
+            </div>
+            <form action="" name="main">
+                <div class="form-container">
+                    <div class="form-container_name">
+                        <input type="text" id="user_name" name="userName" placeholder="Name" minlength="3" required>
+                        <label for="user_name"><span></span></label>
+                    </div>
+                    <div class="form-container_pass">
+                        <input type="password" name="userPass" id="user_pass" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required >
+                        <label for="user_pass"><span></span></label>
+                    </div>
+                    <div class="form-container_country">
+                        <select name="userCountry" id="user_country" id="selectId"  required>
+                            <option value="Germany" hidden >Country</option>
+                            <option value="Germany" class="germany">Germany</option>
+                            <option value="Italy">Italy</option>
+                            <option value="Poland">Poland</option>
+                        </select>
+                    </div>
+                    <div class="form-container_gender" >
+                        <input type="radio" name="UserGender" id="user_gender-male">
+                        <label for="gender">Male</label>
+                        <input type="radio" name="UserGender" id="user_gender-female">
+                        <label for="gender">Female</label>
+                    </div>
+                    <div class="form-container_agreement">
+                        <input type="checkbox" name="USerTerms" id="user_terms">
+                        <label for="terms">Accept <a href="#">terms</a> and <a href="#">conditions</a></label>
+                    </div>
+                    <div class="form-container_sign-in">
+                        <input type="submit" id="form_button" value="Sign Up">
+                        <label for="button"></label>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="script/app.js"></script>
+</body>
+</html>
