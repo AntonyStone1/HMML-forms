@@ -96,27 +96,54 @@ body {
             left: 11px;
             background-image: url('../img/pass-icon.png');
             z-index: 1;
+        }        
+        & input:focus {
+            border: 1px solid #DBE0E4;
         }
-        &::after {
-            content: ' ';
-            display: block;
+        & span {
             position: absolute;
             width: 18px;
             height: 18px;
             top: 14px;
             right: 13px;
+            transition: 0.1s ease;
             background-image: url('../img/passWatch-icon.png');
+            cursor: pointer;
             z-index: 1;
         }
-        & input:focus {
-            border: 1px solid #DBE0E4;
+        & .pass_visibility__hidden {
+            transform: scale(1.5, 0.3);
         }
     }
-    
+    &_country {
+        position: relative;
+        & .country_arrow {
+            display: inline-block;
+            position: absolute;
+            top: 18px;
+            right: 20px;
+            width: 6px;
+            height: 6px;
+            transform: rotate(45deg);
+            border-bottom: 0.5px solid #4d4d4d;
+            border-right: 0.5px solid #4d4d4d;
+            z-index: 1;
+            pointer-events: none;
+        }
+        & .country_arrow__rotate {
+            top: 22px;
+            transform: rotate(-135deg) !important;
+        }
+    }
     &_country select {
+        position: relative;
         padding-left: 32px;
         padding-right: 10px;
+        -moz-appearance:none; 
+        -webkit-appearance:none; 
+        appearance: none;        
     }
+    
     &
     &_country select:focus {
         border: 1px solid #DBE0E4;
@@ -130,12 +157,28 @@ body {
         }
     }
     &_agreement {
+        position: relative;
         padding-left: 10px;
         & label {
-            padding-left: 6px;
+            padding-left: 26px;
+        }
+        & label:before {
+            content: '';
+            display: inline-block;
+            position: absolute;
+            top: 2.5px;
+            left: 10px;
+            flex-shrink: 0;
+            flex-grow: 0;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: 100% 100%;
+            width: 13px;
+            height: 13px;
+            border: 0.5px solid #ADB5BD;
         }
         & label a {
-            color: #625fff;
+            color: #0094FF;
         }
         
     }
@@ -150,19 +193,46 @@ body {
     }
 
 }
+#user_terms {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+#user_terms:checked+label::before {
+    border-color: #0094FF;
+}
+#user_terms:checked+label::after {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    width: 2px;
+    height: 7px;
+    border-bottom: 0.5px solid #0094FF;
+    border-right: 0.5px solid #0094FF;
+    top: 4px;
+    left: 16px;
+    transform: rotate(45deg);
+}
 
+.required_field {
+    &:after {
+        content: 'Requierd Field';
+        display: inline-block;
+        position: absolute;
+        font-size: 10px;
+        width: 70px;
+        top: 55px;
+        left: 20px;
+        color: #FF0000;
+    }
+}
 .sign-in__active {
     background: #0094FF;
 }
 .input__active {
     border: 1px solid #DBE0E4 !important;
 }
-
-
-.germany {
-    margin-top: 10px;
-    padding-top: 10px;
+.form_button__active {
+    background: #0094FF !important;
 }
-#selectId * {
-    background-color: red;
-}
+

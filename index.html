@@ -14,22 +14,23 @@
     <div class="wrapper">
         <div class="form-wrapper">
             <div class="form-heading">
-                <h2>Create new account</h2>
+                <h2>Create a new account</h2>
             </div>
             <form action="" name="main">
                 <div class="form-container">
-                    <div class="form-container_name">
+                    <div class="form-container_name required_field">
                         <input type="text" id="user_name" name="userName" placeholder="Name" minlength="3" required>
                         <label for="user_name"><span></span></label>
                     </div>
-                    <div class="form-container_pass">
+                    <div class="form-container_pass required_field">
                         <input type="password" name="userPass" id="user_pass" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required >
-                        <label for="user_pass"><span></span></label>
+                        <label for="user_pass"><span class="pass_visibility"></span></label>
                     </div>
-                    <div class="form-container_country">
+                    <div class="form-container_country required_field">
+                        <span class="country_arrow "></span>
                         <select name="userCountry" id="user_country" id="selectId"  required>
-                            <option value="Germany" hidden >Country</option>
-                            <option value="Germany" class="germany">Germany</option>
+                            <option value="Country" hidden >Country</option>
+                            <option value="Germany">Germany</option>
                             <option value="Italy">Italy</option>
                             <option value="Poland">Poland</option>
                         </select>
@@ -41,8 +42,8 @@
                         <label for="gender">Female</label>
                     </div>
                     <div class="form-container_agreement">
-                        <input type="checkbox" name="USerTerms" id="user_terms">
-                        <label for="terms">Accept <a href="#">terms</a> and <a href="#">conditions</a></label>
+                        <input type="checkbox" name="UserTerms" id="user_terms">
+                        <label for="user_terms">Accept <a href="#">terms</a> and <a href="#">conditions</a></label>
                     </div>
                     <div class="form-container_sign-in">
                         <input type="submit" id="form_button" value="Sign Up">
