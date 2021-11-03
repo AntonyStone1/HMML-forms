@@ -1,6 +1,4 @@
 'use strict'
-// const formName = document.getElementById('user_name')
-// const formCountry = document.getElementById('user_country')
 const userForm = document.querySelector('.form-container');
 const selected = document.querySelector('select');
 const formPass = document.getElementById('user_pass');
@@ -62,7 +60,7 @@ selected.addEventListener('click', (e) => {
 const checkForms = () => {    
     let bodyObj = {
         text: false,
-        password: false,
+        userPass: false,
         radio: false,
         checkbox: false,
         country: false
@@ -72,8 +70,8 @@ const checkForms = () => {
         if (item.type === 'text' && item.value.length >= 3) {
             bodyObj[item.type] = true;
         }
-        if (item.type === 'password' && isValid(item.value)) {
-            bodyObj[item.type] = true;      
+        if (item.name === 'userPass' && isValid(item.value)) {
+            bodyObj[item.name] = true;      
             }
         if (item.type === 'radio' && item.checked) {
             bodyObj[item.type] = true;  
@@ -88,8 +86,6 @@ const checkForms = () => {
     Object.values(bodyObj).forEach(item => item !== true ? result = false : result)
     return result;
 }
-
-
 
 
 document.addEventListener('input', (e)=> {
