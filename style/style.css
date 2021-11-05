@@ -11,6 +11,10 @@ a, a:visited {
   list-style: none;
 }
 
+ul {
+  list-style: none;
+}
+
 input, select {
   border-top-style: hidden;
   border-right-style: hidden;
@@ -92,7 +96,7 @@ body {
   height: 45px;
   padding-left: 40px;
   background: #F5F8FA;
-  border: 1px solid #FF0000;
+  border: 1px solid #898F94;
   border-radius: 8px;
 }
 
@@ -144,7 +148,6 @@ body {
   right: 13px;
   -webkit-transition: 0.1s ease;
   transition: 0.1s ease;
-  background-image: url("../img/passWatch-icon.png");
   cursor: pointer;
   z-index: 1;
 }
@@ -267,15 +270,22 @@ body {
           transform: rotate(45deg);
 }
 
-.required_field:after {
-  content: 'Requierd Field';
-  display: inline-block;
+.required_field input, .required_field select {
+  border-color: red;
+}
+
+.validation-message {
   position: absolute;
   font-size: 10px;
-  width: 70px;
-  top: 55px;
-  left: 20px;
-  color: #FF0000;
+  color: red;
+  top: 50px;
+  left: 30px;
+  width: 150px !important;
+  height: 20px;
+}
+
+.form-container_pass .validation-message {
+  top: 50px;
 }
 
 .sign-in__active {

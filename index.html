@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;900&family=Mulish:wght@300;400;700&family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
@@ -16,19 +17,19 @@
             <div class="form-heading">
                 <h2>Create a new account</h2>
             </div>
-            <form action="" name="main">
+            <div name="main">
                 <div class="form-container">
-                    <div class="form-container_name required_field">
-                        <input type="text" id="user_name" name="userName" placeholder="Name" minlength="3" required>
-                        <label for="user_name"><span></span></label>
+                    <div class="form-container_name">
+                        <input type="text" id="user_name" name="userName" placeholder="Name">
+                        <span></span>
                     </div>
-                    <div class="form-container_pass required_field">
-                        <input type="password" name="userPass" id="user_pass" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required >
-                        <label for="user_pass"><span class="pass_visibility"></span></label>
+                    <div class="form-container_pass ">
+                        <input type="password" name="userPass" id="user_pass" placeholder="Password" >
+                        <label for="user_pass"><span class="pass_visibility"><i class="far fa-eye"></i></span></label>
                     </div>
-                    <div class="form-container_country required_field">
+                    <div class="form-container_country ">
                         <span class="country_arrow "></span>
-                        <select name="userCountry" id="user_country" id="selectId"  required>
+                        <select name="userCountry" id="user_country" id="selectId"  >
                             <option value="Country" hidden >Country</option>
                             <option value="Germany">Germany</option>
                             <option value="Italy">Italy</option>
@@ -36,7 +37,7 @@
                         </select>
                     </div>
                     <div class="form-container_gender" >
-                        <input type="radio" name="UserGender" id="user_gender-male" >
+                        <input type="radio" name="UserGender" id="user_gender-male" checked>
                         <label for="gender">Male</label>
                         <input type="radio" name="UserGender" id="user_gender-female">
                         <label for="gender">Female</label>
@@ -50,7 +51,7 @@
                         <label for="button"></label>
                     </div>
                 </div>
-            </form>
+            </div>
         </div>
     </div>
     <script src="script/app.js"></script>
