@@ -9,18 +9,17 @@ let passReg = new RegExp ('(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}');
 let nameReg = new RegExp ('(?=.*[a-z])(?=.*[A-Z]).{3,}');
 let countryReg = /[^Country]/;
 
-// function requiredMessageConstuctor (elementPadding, messageInnerHTML, messageClass) {
+function requiredMessageConstuctor (element, elementPadding, messageInnerHTML, messageClass) {
     
-//     this.closest('div').style.paddingBottom = `${elementPadding}`
-//     let validationMessage = document.createElement('span');
-//     validationMessage.classList.add('validation-message');
-//     validationMessage.innerHTML = `${messageInnerHTML}`
-//     this.closest('div').append(validationMessage);
-//     this.closest('div').classList.add(`${messageClass}`);
-// }
+    element.closest('div').style.paddingBottom = `${elementPadding}`
+    let validationMessage = document.createElement('span');
+    validationMessage.classList.add('validation-message');
+    validationMessage.innerHTML = `${messageInnerHTML}`
+    element.closest('div').append(validationMessage);
+    element.closest('div').classList.add(`${messageClass}`);
+}
 
 function validationCheck (item, validator) {
-        console.log(this);
     if (validator.test(item.value)) {
         item.closest('div').lastChild.innerHTML = '';
         item.closest('div').style.paddingBottom = '';
@@ -29,27 +28,13 @@ function validationCheck (item, validator) {
     } else {
         if (item.closest('div').lastElementChild.classList.value !== 'validation-message') {
             if (item.id === 'user_name') {
-                item.closest('div').style.paddingBottom = '7px'
-                let validationMessage = document.createElement('span');
-                validationMessage.classList.add('validation-message');
-                validationMessage.innerHTML = `Minimum 3 letters <br> Only letters`;
-                item.closest('div').append(validationMessage);
-                item.closest('div').classList.add('required_field');
+                requiredMessageConstuctor(item, '7px', `Minimum 3 letters <br> Only letters`, 'required_field')
             }
             if (item.id === 'user_pass') {
-                    item.closest('div').style.paddingBottom = '18px'
-                    let validationMessage = document.createElement('span');
-                    validationMessage.classList.add('validation-message');
-                    validationMessage.innerHTML = `<ul><li>1 uppercase</li><li>1 capital letter</li><li>minimum 8 characters</li></ul>`;
-                    item.closest('div').append(validationMessage);
-                    item.closest('div').classList.add('required_field');
+                    requiredMessageConstuctor(item, '18px', `<ul><li>1 uppercase</li><li>1 capital letter</li><li>minimum 8 characters</li></ul>`, 'required_field')
             }
             if (item.id === 'user_country') {
-                let validationMessage = document.createElement('span');
-                validationMessage.classList.add('validation-message');
-                validationMessage.innerHTML = `Cuontry field is required`;
-                item.closest('div').append(validationMessage);
-                item.closest('div').classList.add('required_field');
+                requiredMessageConstuctor(item, '', `Cuontry field is required`, 'required_field')
             }
         }                
         return validator.test(item.value)
