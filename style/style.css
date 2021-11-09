@@ -101,7 +101,18 @@ body {
 }
 
 .form-container_name {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   position: relative;
+  height: auto;
 }
 
 .form-container_name::before {
@@ -121,6 +132,13 @@ body {
 }
 
 .form-container_pass {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   position: relative;
 }
 
@@ -133,7 +151,7 @@ body {
   top: 12px;
   left: 11px;
   background-image: url("../img/pass-icon.png");
-  z-index: 1;
+  z-index: 4;
 }
 
 .form-container_pass input:focus {
@@ -158,6 +176,13 @@ body {
 }
 
 .form-container_country {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   position: relative;
 }
 
@@ -275,17 +300,18 @@ body {
 }
 
 .required_field input, .required_field select {
-  border-color: red;
+  border-color: red !important;
 }
 
 .validation-message {
   position: absolute;
   font-size: 10px;
   color: red;
-  top: 50px;
-  left: 30px;
+  padding-top: 50px;
+  padding-left: 10px;
   width: 150px !important;
   height: 20px;
+  pointer-events: none;
 }
 
 .user_terms__no-checked:before {

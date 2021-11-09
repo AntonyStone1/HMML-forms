@@ -73,7 +73,11 @@ body {
         border-radius: 8px;
     }    
     &_name{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
         position: relative;
+        height: auto;
         &::before {
             content: ' ';
             display: block;
@@ -90,6 +94,8 @@ body {
         }
     }
     &_pass {
+        display: flex;
+        flex-direction: column;
         position: relative;
         &::before {
             content: ' ';
@@ -100,7 +106,7 @@ body {
             top: 12px;
             left: 11px;
             background-image: url('../img/pass-icon.png');
-            z-index: 1;
+            z-index: 4;
         }        
         & input:focus {
             border: 1px solid #DBE0E4;
@@ -120,6 +126,8 @@ body {
         }
     }
     &_country {
+        display: flex;
+        flex-direction: column;
         position: relative;
         & .country_arrow {
             display: inline-block;
@@ -224,7 +232,7 @@ body {
 
 .required_field {
     & input, select {
-        border-color: red;
+        border-color: red !important;
     }   
 }
 
@@ -232,10 +240,13 @@ body {
     position: absolute;
     font-size: 10px;
     color: red;
-    top: 50px;
-    left: 30px;
+    padding-top: 50px;
+    padding-left: 10px;
+    // background-color: red;
     width: 150px !important;
     height: 20px;
+    // z-index: 3;
+    pointer-events: none;
 }
 
 .user_terms__no-checked:before {
