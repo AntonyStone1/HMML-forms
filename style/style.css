@@ -256,6 +256,10 @@ body {
   border-color: #0094FF;
 }
 
+.user_terms__no-checked::before {
+  border-color: red;
+}
+
 #user_terms:checked + label::after {
   content: '';
   display: inline-block;
@@ -282,6 +286,10 @@ body {
   left: 30px;
   width: 150px !important;
   height: 20px;
+}
+
+.user_terms__no-checked:before {
+  border-color: red !important;
 }
 
 .form-container_pass .validation-message {

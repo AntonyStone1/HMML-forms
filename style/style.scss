@@ -181,6 +181,7 @@ body {
             height: 13px;
             border: 0.5px solid #ADB5BD;
         }
+        
         & label a {
             color: #0094FF;
         }
@@ -204,6 +205,9 @@ body {
 }
 #user_terms:checked+label::before {
     border-color: #0094FF;
+}
+.user_terms__no-checked::before {
+    border-color: red;
 }
 #user_terms:checked+label::after {
     content: '';
@@ -234,6 +238,9 @@ body {
     height: 20px;
 }
 
+.user_terms__no-checked:before {
+    border-color: red !important;
+}
 .form-container_pass {
     & .validation-message {
         top: 50px;
