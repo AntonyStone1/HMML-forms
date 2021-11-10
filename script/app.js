@@ -32,7 +32,7 @@ const configObj = {
     },
     user_country: {
         validationOptions: countryReg,
-        messageText: 'That field i required'
+        messageText: 'Please select your country'
     }
 }
 
