@@ -25,18 +25,10 @@ const configObj = {
                         Minimum 3 letters`
     },
     user_pass: {
-            
-            validationOptions: passRegBigLetter,
-            messageText: '1 uppercase',
-        
-            validationOptions: passRegSmallLetter,
-            messageText: '1 small letter',
-        
-            validationOptions: passRegNumber,
-            messageText: 'minimum 1 number',
-        
-            validationOptions: passRegLength,
-            messageText: 'minimum 8 characters',
+        validationOptions: passReg,
+        messageText: `min 1 number
+                        min 1 uppercase letter
+                        minimum 8 characters`
     },
     user_country: {
         validationOptions: countryReg,
@@ -76,39 +68,51 @@ function requiredMessageConstuctor (obj, inputField, elementId) {
             inputField.closest('div').removeChild(elementForDeleting);            
         }
     }
-    return true;  
 }
 
 const termsChecker = elem => {    
     if (!elem.checked) {
         userTermsLabel.classList.add('user_terms__no-checked')
-        return;
     }
-    if (elem.checked) {
-        userTermsLabel.classList.remove('user_terms__no-checked')
-        // return true;
-    }    
-    return true;
-}
-const genderCheck = (male, female) => {
-    return (male.checked || female.chcked) ? true : false;
+    elem.addEventListener('click', () => {
+        if (!elem.checked) {
+            userTermsLabel.classList.add('user_terms__no-checked')
+        }
+        if (elem.checked) {
+            userTermsLabel.classList.remove('user_terms__no-checked')
+        } 
+    })
+       
 }
 
-const valueCheck = elem => {
-    return (elem.value) ? true : false;
+const genderCheck = (male, female) => {
+    return (male.checked || female.checked) ? true : false;
 }
 
 eaePassTypeToggler();
 
 inputsFields.forEach(item => {
     item.addEventListener('input', () => {
-        if (requiredMessageConstuctor(configObj, countryInput, 'user_country') && requiredMessageConstuctor(configObj, nameInput, 'user_name') && termsChecker(userTerms) && genderCheck(userGenderMale, userGenderFemale) ) {
+        if (isValid(passInput.value, passReg) && isValid(nameInput.value, nameReg) && isValid(countryInput.value, countryReg) && genderCheck(userGenderMale, userGenderFemale) && termsChecker(userTerms)) {
             submitBtn.style.backgroundColor = '#0094FF';
         } else {
             submitBtn.style.backgroundColor = '#A2A2A2';
         }
     })
 })
+
+
+const formObjConstructor = (inputs) => {
+    let result = {};
+    inputs.forEach(input => {
+        if (input.type !== 'checkbox' && input.type !== 'radio') {
+            result[input.id] = input.value
+        } else {
+            result[input.id] = input.checked;
+        }
+    })
+    return result;
+}
 nameInput.addEventListener('input', () => {
     requiredMessageConstuctor(configObj, nameInput, 'user_name')
 })
@@ -118,12 +122,16 @@ passInput.addEventListener('input', () => {
 countryInput.addEventListener('click', () => {
     requiredMessageConstuctor(configObj, countryInput, 'user_country')
 })
+passInput.addEventListener('click', () => {
+    requiredMessageConstuctor(configObj, passInput, 'user_pass')
+})
 
 submitBtn.addEventListener('click', () => {
-    requiredMessageConstuctor(configObj, countryInput, 'user_country')
     requiredMessageConstuctor(configObj, nameInput, 'user_name')
+    requiredMessageConstuctor(configObj, passInput, 'user_pass')
+    requiredMessageConstuctor(configObj, countryInput, 'user_country')
     termsChecker(userTerms);
-    valueCheck(countryInput);    
+    console.log(formObjConstructor(inputsFields));
 })
 
 
