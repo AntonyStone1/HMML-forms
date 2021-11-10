@@ -97,15 +97,16 @@ inputsFields.forEach(item => {
     })
 })
 
-const formObjConstructor = (inputs) => {
+const formObjConstructor = (inputs, country) => {
     let result = {};
     inputs.forEach(input => {
         if (input.type !== 'checkbox' && input.type !== 'radio') {
             result[input.id] = input.value
-        } else {
-            result[input.id] = input.checked;
+        } else if (input.checked) {
+            result[input.id] = input.value;
         }
     })
+    result[country.id] = country.value;
     return result;
 }
 nameInput.addEventListener('input', () => {
@@ -136,7 +137,7 @@ submitBtn.addEventListener('click', () => {
     termsChecker(userTerms);
     
     if (isValid(passInput.value, passReg) && isValid(nameInput.value, nameReg) && isValid(countryInput.value, countryReg) && genderCheck(userGenderMale, userGenderFemale) && (userTerms.checked)) {
-        console.log(formObjConstructor(inputsFields));
+        console.log(formObjConstructor(inputsFields, countryInput));
     }
     
 })
