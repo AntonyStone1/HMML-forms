@@ -195,10 +195,12 @@ body {
         }
         
     }
-    &_sign-in input {
+    &_sign-in #form_button {
         font-size: 18px;
         line-height: 21px;
         color: #fff;
+        width: 100%;
+        height: 45px;
         padding: 0;
         background: #A2A2A2;
         border: #DBE0E4;
