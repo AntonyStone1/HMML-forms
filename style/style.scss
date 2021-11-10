@@ -203,6 +203,7 @@ body {
         background: #A2A2A2;
         border: #DBE0E4;
         border-radius: 12px;
+        cursor: pointer;
     }
 
 }
@@ -238,7 +239,7 @@ body {
 
 .validation-message {
     font-size: 10px;
-    color: red;
+    color: #898F94;
     padding-top: 5px;
     padding-left: 10px;
     width: 150px;
@@ -255,9 +256,7 @@ body {
     }
 }
 
-.sign-in__active {
-    background: #0094FF;
-}
+
 .input__active {
     border: 1px solid #DBE0E4 !important;
 }

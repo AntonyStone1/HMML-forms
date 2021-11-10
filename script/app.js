@@ -72,17 +72,12 @@ function requiredMessageConstuctor (obj, inputField, elementId) {
 
 const termsChecker = elem => {    
     if (!elem.checked) {
-        userTermsLabel.classList.add('user_terms__no-checked')
-    }
-    elem.addEventListener('click', () => {
-        if (!elem.checked) {
+        if (!userTerms.checked) {
             userTermsLabel.classList.add('user_terms__no-checked')
         }
-        if (elem.checked) {
-            userTermsLabel.classList.remove('user_terms__no-checked')
-        } 
-    })
-       
+        return;
+    }
+    return true;     
 }
 
 const genderCheck = (male, female) => {
@@ -93,14 +88,14 @@ eaePassTypeToggler();
 
 inputsFields.forEach(item => {
     item.addEventListener('input', () => {
-        if (isValid(passInput.value, passReg) && isValid(nameInput.value, nameReg) && isValid(countryInput.value, countryReg) && genderCheck(userGenderMale, userGenderFemale) && termsChecker(userTerms)) {
+        if (isValid(passInput.value, passReg) && isValid(nameInput.value, nameReg) && isValid(countryInput.value, countryReg) && genderCheck(userGenderMale, userGenderFemale) && (userTerms.checked)) {
             submitBtn.style.backgroundColor = '#0094FF';
         } else {
             submitBtn.style.backgroundColor = '#A2A2A2';
         }
+        
     })
 })
-
 
 const formObjConstructor = (inputs) => {
     let result = {};
@@ -122,16 +117,28 @@ passInput.addEventListener('input', () => {
 countryInput.addEventListener('click', () => {
     requiredMessageConstuctor(configObj, countryInput, 'user_country')
 })
-passInput.addEventListener('click', () => {
-    requiredMessageConstuctor(configObj, passInput, 'user_pass')
+
+userTerms.addEventListener('click', () => {
+    if (!userTerms.checked) {
+        userTermsLabel.classList.add('user_terms__no-checked')
+    }
+    if (userTerms.checked) {
+        userTermsLabel.classList.remove('user_terms__no-checked')
+        
+    }    
 })
+
 
 submitBtn.addEventListener('click', () => {
     requiredMessageConstuctor(configObj, nameInput, 'user_name')
     requiredMessageConstuctor(configObj, passInput, 'user_pass')
     requiredMessageConstuctor(configObj, countryInput, 'user_country')
     termsChecker(userTerms);
-    console.log(formObjConstructor(inputsFields));
+    
+    if (isValid(passInput.value, passReg) && isValid(nameInput.value, nameReg) && isValid(countryInput.value, countryReg) && genderCheck(userGenderMale, userGenderFemale) && (userTerms.checked)) {
+        console.log(formObjConstructor(inputsFields));
+    }
+    
 })
 
 

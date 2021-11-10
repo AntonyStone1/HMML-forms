@@ -269,6 +269,7 @@ body {
   background: #A2A2A2;
   border: #DBE0E4;
   border-radius: 12px;
+  cursor: pointer;
 }
 
 #user_terms {
@@ -305,7 +306,7 @@ body {
 
 .validation-message {
   font-size: 10px;
-  color: red;
+  color: #898F94;
   padding-top: 5px;
   padding-left: 10px;
   width: 150px;
@@ -319,10 +320,6 @@ body {
 
 .form-container_pass .validation-message {
   top: 50px;
-}
-
-.sign-in__active {
-  background: #0094FF;
 }
 
 .input__active {
